@@ -4,12 +4,13 @@ class Solution(object):
         :type s: str
         :rtype: bool
         """
-        set_ = set()
-        n = len(s)
-        for i in range(n):
-            if s[i] == 'a' and 'b' in set_:
+        seen_b = False
+        for c in s:
+            if c == 'b':
+                seen_b = True
+            elif seen_b:
                 return False
-            set_.add(s[i])
-        return True        
+        return True
+                    
 
         
